@@ -119,18 +119,27 @@ export class ApplicantForm {
         };
         this.httpClient
           .post("/applicant", form)
-          .then((res) => {
+          .then((_) => {
             //
             this.router.navigate('/applicant-list');
             this.clearForm();
             this.isRequesting = false;
           })
           .catch((error) => {
-            const res = JSON.parse(error.response);
+           
             this.visibility = "display:block";
-            for(const e of Object.keys(res.errors)){
-              this.message += res.errors[e].join('<br/>') + "<br/>"
+            const data = error?.content?.data;
+            if(data && Array.isArray(data) ){
+              this.message ='<ul>'
+              for(const e of error?.content?.data){
+                this.message += `<li>${e.errorMessage} </li>`;
+              }
+              this.message += '</ul>';
+            }else{
+              this.message = data;
             }
+           
+            
             this.isRequesting = false;
           });
       } else {
@@ -158,5 +167,6 @@ private clearForm(): void {
     this.hired = false;
     this.familyName = "";
     this.countryOfOrigin =''
+    this.visibility='display:none';
   }
 }

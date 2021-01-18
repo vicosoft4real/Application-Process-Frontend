@@ -3,13 +3,25 @@ import { autoinject } from "aurelia-dependency-injection";
 
 import { RouterConfiguration, Router } from "aurelia-router";
 
+/**
+ * App 
+ *
+ * @export
+ * @class App
+ */
 @autoinject
 export class App {
 
   router: Router;
  
-
-  configureRouter(config: RouterConfiguration, router: Router): void {
+/**
+ *
+ *
+ * @param {RouterConfiguration} config
+ * @param {Router} router
+ * @memberof App
+ */
+configureRouter(config: RouterConfiguration, router: Router): void {
     config.title = 'Application Process';
 		
       config.map([

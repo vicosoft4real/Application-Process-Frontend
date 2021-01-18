@@ -6,7 +6,12 @@ import Backend from 'i18next-xhr-backend'
 import {ValidationMessageProvider} from 'aurelia-validation';
   
  
-
+/**
+ *
+ *
+ * @export
+ * @param {Aurelia} aurelia
+ */
 export function configure(aurelia: Aurelia): void {
   aurelia.use
     .standardConfiguration()
