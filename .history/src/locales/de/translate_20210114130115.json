@@ -1,0 +1,9 @@
+{
+  "name": "First name",
+  "familyName": "Last name",
+  "submit": "Submit",
+  "latestValidationResult": "Latest validation result",
+  "errorMessages": {
+    "required": "${$displayName} is missing!"
+  }
+}

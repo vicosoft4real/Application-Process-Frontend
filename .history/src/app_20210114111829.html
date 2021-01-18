@@ -1,0 +1,18 @@
+<template>  
+  <ul if.bind="controller.errors">
+    <li repeat.for="error of controller.errors">
+      ${error.message}
+    </li>
+  </ul>
+  <form>
+    <input type="text" value.bind="name & validate">
+  
+    <input type="text" value.bind="familyName & validate">
+    
+    <input type="text" value.bind="email & validate">
+    
+    <input type="text" value.bind="age & validate">
+    
+  
+  </form>
+</template

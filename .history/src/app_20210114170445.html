@@ -1,0 +1,67 @@
+<template>  
+  <form>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Application Processes</div>
+    <div class="panel-body">
+    
+        
+    
+            <div class="form-group" validation-errors.bind="nameErrors"
+            class.bind="nameErrors.length ? 'has-error' : ''">
+        <label for="name">First Name</label>
+        <input type="text" class="form-control" id="name"
+                placeholder="First Name"
+                value.bind="name & validate">
+        <span class="help-block" repeat.for="errorInfo of nameErrors">
+          ${errorInfo.error.message}
+        </span>
+        </div>
+        
+        <div class="form-group" validation-errors.bind="familyNameErrors"
+            class.bind="familyNameErrors.length ? 'has-error' : ''">
+        <label for="familyName">Last Name</label>
+        <input type="text" class="form-control" id="familyName"
+                placeholder="Last Name"
+              value.bind="familyName & validate">
+        <span class="help-block" repeat.for="errorInfo of familyNameErrors">
+          ${errorInfo.error.message}
+        </span>
+        </div>
+        <div class="form-group" validation-errors.bind="emailErrors"
+            class.bind="emailErrors.length ? 'has-error' : ''">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email"
+                placeholder="Email"
+              value.bind="email & validate">
+        <span class="help-block" repeat.for="errorInfo of emailErrors">
+          ${errorInfo.error.message}
+        </span>
+        </div>
+        <div class="form-group" validation-errors.bind="ageErrors"
+        class.bind="ageErrors.length ? 'has-error' : ''">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="familyName"
+            placeholder="Age"
+          value.bind="age & validate">
+        <span class="help-block" repeat.for="errorInfo of ageErrors">
+        ${errorInfo.error.message}
+        </span>
+        </div>
+            
+            
+           
+            
+        
+            
+         
+        
+     
+          <div class="panel panel-footer text-center">
+            <button class="btn btn-primary" disabled.bind="controller.errors && controller.errors.length >0" click.delegate="submit()">${'submit' & t}</button>
+          </div>
+    </div>
+  </div>
+</form>
+
+ 
+</template

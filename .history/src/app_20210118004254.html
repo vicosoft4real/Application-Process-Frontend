@@ -1,0 +1,80 @@
+<template>
+  <loading-indicator loading.bind="isRequesting"></loading-indicator>
+
+  <form >
+    <div class="panel panel-primary">
+      <div class="panel-heading">Application Processes</div>
+      <div class="panel-body">
+
+
+
+        <div class="form-group" validation-errors.bind="nameErrors" class.bind="nameErrors.length ? 'has-error' : ''">
+          <label for="name">${'name' & t}</label>
+          <input type="text" class="form-control" id="name" placeholder="First Name" value.bind="name & validate">
+          <span class="help-block" repeat.for="errorInfo of nameErrors">
+            ${errorInfo.error.message}
+          </span>
+        </div>
+
+        <div class="form-group" validation-errors.bind="familyNameErrors"
+          class.bind="familyNameErrors.length ? 'has-error' : ''">
+          <label for="familyName">${'familyName' & t}</label>
+          <input type="text" class="form-control" id="familyName" placeholder="Last Name"
+            value.bind="familyName & validate">
+          <span class="help-block" repeat.for="errorInfo of familyNameErrors">
+            ${errorInfo.error.message}
+          </span>
+        </div>
+        <div class="form-group" validation-errors.bind="emailErrors" class.bind="emailErrors.length ? 'has-error' : ''">
+          <label for="email">${'email' & t}</label>
+          <input type="email" class="form-control" id="email" placeholder="Email" value.bind="email & validate">
+          <span class="help-block" repeat.for="errorInfo of emailErrors">
+            ${errorInfo.error.message}
+          </span>
+        </div>
+        <div class="form-group" validation-errors.bind="ageErrors" class.bind="ageErrors.length ? 'has-error' : ''">
+          <label for="age">${'age' & t}</label>
+          <input type="number" class="form-control" id="familyName" placeholder="Age" value.bind="age & validate">
+          <span class="help-block" repeat.for="errorInfo of ageErrors">
+            ${errorInfo.error.message}
+          </span>
+        </div>
+        <div class="form-group" validation-errors.bind="addressErrors" class.bind="ageErrors.length ? 'has-error' : ''">
+          <label for="address">${'address' & t}</label>
+          <textarea  class="form-control" id="address" placeholder="address" value.bind="address & validate" ></textarea>
+          <span class="help-block" repeat.for="errorInfo of addressErrors">
+            ${errorInfo.error.message}
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label><input type="checkbox" checked.bind="hired">  Hired</label>
+        </div>
+
+
+
+
+
+
+
+
+        <div class="panel panel-footer text-center">
+          <button class="btn btn-primary" disabled.bind="controller.errors && controller.errors.length >0"
+            click.delegate="submit()">${'submit' & t}</button> |
+          <button class="btn btn-default" click.trigger="reset()">${'reset' & t}</button>
+        </div>
+      </div>
+    </div>
+  </form>
+ 
+  <nav>
+     <ul>
+        <li repeat.for = "row of router.navigation">
+           <a href.bind = "row.href">${row.title}</a>
+        </li>
+     </ul>
+  </nav>	
+  <router-view></router-view>
+</template>
+
+

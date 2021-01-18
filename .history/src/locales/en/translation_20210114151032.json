@@ -1,0 +1,14 @@
+    {
+      "name": "First name",
+      "familyName": "Last name",
+      "email":"Email",
+      "age":"Age",
+      "submit": "Submit",
+      "latestValidationResult": "Latest validation result",
+      "errorMessages": {
+        "required": "${$displayName} is missing!",
+        "minLength": "${$displayName}",
+        "maxLength": "${$displayName}",
+        "email": "${$displayName}"
+      }
+    }

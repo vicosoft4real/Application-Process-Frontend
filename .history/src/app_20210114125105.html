@@ -1,0 +1,36 @@
+<template>  
+  <ul if.bind="controller.errors">
+    <li repeat.for="error of controller.errors">
+      ${error.message}
+    </li>
+  </ul>
+  <form>
+    <input type="text" value.bind="name & validate">
+  
+    <input type="text" value.bind="familyName & validate">
+    
+    <input type="text" value.bind="email & validate">
+    
+    <input type="text" value.bind="age & validate">
+    
+    <label>${'name' & t}: <br>
+      <input type="text" value.bind="name & validate">
+    </label>
+    <label>${'familyName' & t}: <br>
+      <input type="text" value.bind="familyName & validate">
+    </label>
+    <button click.delegate="submit()">${'submit' & t}</button>
+  </form>
+
+  <div>
+    <h3>${'latestValidationResult' & t}: ${message}</h3>
+    <ul if.bind="controller.errors.length">
+      <li repeat.for="error of controller.errors">
+        ${error.message}
+      </li>
+    </ul>
+  </div>
+
+  
+  </form>
+</template

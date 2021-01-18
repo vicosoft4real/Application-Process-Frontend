@@ -1,0 +1,18 @@
+    {
+      "name": "First name",
+      "familyName": "Last name",
+      "email":"Email",
+      "age":"Age",
+      "submit": "Send",
+      "reset":"Reset",
+      "address":"Address",
+      "countryOfOrigin": "Country",
+      "latestValidationResult": "Latest validation result",
+      "errorMessages": {
+        "required": "${$displayName} is missing!",
+        "minLength": "${$displayName} must be at least ${$config.length} character${$config.length === 1 ? '' : 's' }",
+        "maxLength": "${$displayName} cannot be longer than ${$config.length} character${$config.length === 1 ? '' : 's'} ",
+        "email": "${$displayName} is not a valid email",
+        "between": "${$displayName} must be between ${$config.min} and ${$config.max}"
+      }
+    }

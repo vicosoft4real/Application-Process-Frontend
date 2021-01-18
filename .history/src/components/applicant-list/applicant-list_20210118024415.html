@@ -1,0 +1,51 @@
+<template>
+  <loading-indicator loading.bind="isRequesting"></loading-indicator>
+  
+  
+  <div class="panel panel-primary">
+<div class="panel panel-heading"><button class="btn btn-primary">Add New</button> Applicant List</div>
+<div class="panel panel-body">
+  <table class="table">
+   <thead>
+     <th>
+       Name
+     </th>
+     <th>
+      Family Name
+    </th>
+    <th>
+      Email
+    </th>
+    <th>
+      Age
+    </th>
+    <th>
+      Hired
+    </th>
+   </thead>
+   <tbody>
+     <tr repeat.for="applicant of applicants" >
+       <td>
+         ${applicant.name}
+       </td>
+       <td>
+        ${applicant.familyName}
+      </td>
+      <td>
+        ${applicant.emailAddress}
+      </td>
+      <td>
+        ${applicant.age}
+      </td>
+      <td>
+        ${applicant.hire ? 'Hired': 'Not Hired'}
+      </td>
+     </tr>
+   </tbody>
+  </table>
+</div>
+  </div>
+
+</template>
+
+ 

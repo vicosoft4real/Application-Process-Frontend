@@ -1,0 +1,62 @@
+<template>  
+  <ul if.bind="controller.errors">
+    <li repeat.for="error of controller.errors">
+      ${error.message}
+    </li>
+  </ul>
+  <form>
+
+    <div class="form-group" validation-errors.bind="nameErrors"
+    class.bind="nameErrors.length ? 'has-error' : ''">
+<label for="name">First Name</label>
+<input type="text" class="form-control" id="name"
+        placeholder="First Name"
+        value.bind="name & validate">
+<span class="help-block" repeat.for="errorInfo of nameErrors">
+  ${errorInfo.error.message}
+</span>
+</div>
+
+<div class="form-group" validation-errors.bind="familyNameErrors"
+    class.bind="lastNameErrors.length ? 'has-error' : ''">
+<label for="familyName">Last Name</label>
+<input type="text" class="form-control" id="familyName"
+        placeholder="Last Name"
+      value.bind="familyName & validate">
+<span class="help-block" repeat.for="errorInfo of familyNameErrors">
+  ${errorInfo.error.message}
+</span>
+</div>
+    <label>${'name' & t}: <br>
+      <input type="text" value.bind="name & validate">
+    </label>
+    <label>${'familyName' & t}: <br>
+      <input type="text" value.bind="familyName & validate">
+    </label>
+
+    <label>${'email' & t}: <br>
+      <input type="text" value.bind="email & validate">
+    </label>
+    <label>${'age' & t}: <br>
+      <input type="text" value.bind="age & validate">
+    </label>
+    
+    
+   
+    
+
+    <button click.delegate="submit()">${'submit' & t}</button>
+  </form>
+
+  <div>
+    <h3>${'latestValidationResult' & t}: ${message}</h3>
+    <ul if.bind="controller.errors.length">
+      <li repeat.for="error of controller.errors">
+        ${error.message}
+      </li>
+    </ul>
+  </div>
+
+  
+  </form>
+</template
